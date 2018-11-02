@@ -11,7 +11,7 @@ function(pkg, generic, class, fun = NULL)
     stopifnot(is.function(fun))
   }
 
-  if (isNamespaceLoaded(pkg)) {
+  if (pkg %in% loadedNamespaces()) {
     registerS3method(generic, class, fun, envir = asNamespace(pkg))
   }
 
